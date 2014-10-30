@@ -1,8 +1,15 @@
-# chef-hipchat
+# drobune-hipchat
+chefのcookが終わったときにメッセージをhipchatに発射するレシピです.
+fork元はcook中にエラーがあった時に発射していたので改変しました.
+
+fork from chef-hipchat
+
+thx Cameron!!
 
 ## Description
 
 This cookbook provides a `hipchat_msg` resource, making it easier for chef recipes to send messages to a chat room on Atlassian's HipChat service.
+
 
 ## Platform
 
@@ -30,18 +37,6 @@ Should work on any platform where Chef runs. Tested on Ubuntu.
 * `color` - sets the color of the message in HipChat. Supported colors include: yellow, red, green, purple, or random (defaults to yellow).
 * `failure_ok` - toggles whether or not to catch the exception if an error is encountered connecting to HipChat (defaults to true).
 
-## Usage example
-```ruby
-include_recipe 'hipchat'
-
-hipchat_msg 'bad news' do
-  room 'The Pod Bay'
-  token '0xdedbeef0xdedbeef0xdedbeef'
-  nickname 'HAL9000'
-  message "Sorry Dave, I'm afraid I can't do that: #{some_error}"
-  color 'red'
-end
-```
 
 ## License and Author
 
