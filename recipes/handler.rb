@@ -48,7 +48,7 @@ handler_options = {
 
 chef_handler 'HipChat::NotifyRoom' do
   source handler_file
-  supports({:exception => true})
+  supports({:report => true})
   arguments [ handler['token'], handler['room'], handler_options ]
   action :nothing
 end.run_action(node['hipchat']['handler']['enabled'] ? :enable : :disable)
