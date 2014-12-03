@@ -19,10 +19,10 @@
 
 chef_gem 'httparty' do
   version node['hipchat']['httparty_version']
-  action :nothing
-end.run_action(:install)
+  action :install
+end
 
 chef_gem 'hipchat' do
   version node['hipchat']['hipchat_version']
-  action :nothing
-end.run_action(:install)
+  action :install
+end
