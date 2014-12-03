@@ -24,8 +24,8 @@ directory node['chef_handler']['handler_path'] do
   group 'root'
   mode '755'
   recursive true
-  action :nothing
-end.run_action(:create)
+  action :create
+end
 
 handler_file = ::File.join(node['chef_handler']['handler_path'], 'hipchat.rb')
 
@@ -34,8 +34,8 @@ cookbook_file handler_file do
   owner 'root'
   group 'root'
   mode '644'
-  action :nothing
-end.run_action(:create)
+  action :create
+end
 
 handler = node['hipchat']['handler']
 handler_options = {
@@ -50,5 +50,5 @@ chef_handler 'HipChat::NotifyRoom' do
   source handler_file
   supports({:report => true})
   arguments [ handler['token'], handler['room'], handler_options ]
-  action :nothing
-end.run_action(node['hipchat']['handler']['enabled'] ? :enable : :disable)
+  action (node['hipchat']['handler']['enabled'] ? :enable : :disable)
+end
